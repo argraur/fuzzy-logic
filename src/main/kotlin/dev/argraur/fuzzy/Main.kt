@@ -90,6 +90,12 @@ fun main(args: Array<String>) {
         "set" to List(141) { "Hot" }
     )
 
+    val unbearablyHot = mapOf(
+        "Температура" to (-30..110).toList(),
+        "Принадлежность" to (-30..110).map { unbearablyHotTemperatureFuzzySet.contains(it.toDouble()) },
+        "set" to List(141) { "Unbearably hot" }
+    )
+
     val boiling = mapOf(
         "Температура" to (-30..110).toList(),
         "Принадлежность" to (-30..110).map { boilingTemperatureFuzzySet.contains(it.toDouble()) },
@@ -101,6 +107,7 @@ fun main(args: Array<String>) {
             geomLine(data = cold, size = 1.0) { x = "Температура"; y = "Принадлежность"; color = "set" } +
             geomLine(data = warm, size = 1.0) { x = "Температура"; y = "Принадлежность"; color = "set" } +
             geomLine(data = hot, size = 1.0) { x = "Температура"; y = "Принадлежность"; color = "set" } +
+            geomLine(data = unbearablyHot, size = 1.0) { x = "Температура"; y = "Принадлежность"; color = "set" } +
             geomLine(data = boiling, size = 1.0) { x = "Температура"; y = "Принадлежность"; color = "set" } +
             ggtitle("Нечёткое множество, температура") +
             scaleXContinuous(breaks = (-30..110 step 10).toList()) +
