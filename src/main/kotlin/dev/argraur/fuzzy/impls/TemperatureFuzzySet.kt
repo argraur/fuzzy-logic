@@ -1,7 +1,7 @@
 package dev.argraur.fuzzy.impls
 
-class TemperatureFuzzySet(val range: IntRange) :
-    FunctionalFuzzySet<Double>(range.map { it.toDouble() }.toSet(), { x ->
+class TemperatureFuzzySet(val range: IntRange)
+    : FunctionalFuzzySet<Double>(elements = range.map { it.toDouble() }.toSet(), membership = { x ->
         val relax = 10.0
         val a = range.first.toDouble()
         val b = range.last.toDouble()
